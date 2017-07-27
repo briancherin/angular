@@ -12,9 +12,10 @@ import {Type} from '../type';
 import {resolveForwardRef} from './forward_ref';
 import {InjectionToken} from './injection_token';
 import {Inject, Optional, Self, SkipSelf} from './metadata';
-import {ClassProvider, ExistingProvider, FactoryProvider, Provider, TypeProvider, ValueProvider} from './provider';
+import {ExistingProvider, FactoryProvider, ValueProvider} from './provider';
 import {invalidProviderError, mixingMultiProvidersWithRegularProvidersError, noAnnotationError} from './reflective_errors';
 import {ReflectiveKey} from './reflective_key';
+import {ClassProvider, Provider, TypeProvider} from './reflective_provider_interfaces';
 
 
 interface NormalizedProvider extends TypeProvider, ValueProvider, ClassProvider, ExistingProvider,
