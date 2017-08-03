@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-import {Optional, Provider, SkipSelf} from '../../di';
+import {Optional, SkipSelf, StaticProvider} from '../../di';
 import {ChangeDetectorRef} from '../change_detector_ref';
 
 
@@ -35,7 +35,7 @@ export interface KeyValueDiffer<K, V> {
    */
   diff(object: {[key: string]: V}): KeyValueChanges<string, V>;
   // TODO(TS2.1): diff<KP extends string>(this: KeyValueDiffer<KP, V>, object: Record<KP, V>):
-  // KeyValueDiffer<KP, V>;
+  // KeyValueDiffer<KP, V>;~~
 }
 
 /**
@@ -156,7 +156,7 @@ export class KeyValueDiffers {
    * })
    * ```
    */
-  static extend<S>(factories: KeyValueDifferFactory[]): Provider {
+  static extend<S>(factories: KeyValueDifferFactory[]): StaticProvider {
     return {
       provide: KeyValueDiffers,
       useFactory: (parent: KeyValueDiffers) => {
